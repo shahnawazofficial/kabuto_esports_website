@@ -1,0 +1,27 @@
+RewriteEngine On
+RewriteBase /kabuto/public/
+
+# LOCAL TESTING: HTTPS redirect disabled
+# Uncomment below for production:
+# RewriteCond %{HTTPS} off
+# RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Route clean URLs
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^tournaments/?$                 tournaments.php  [L,QSA]
+RewriteRule ^tournament/([a-z0-9-]+)/?$     tournament.php?slug=$1  [L,QSA]
+RewriteRule ^register/([0-9]+)/?$           register.php?id=$1  [L,QSA]
+RewriteRule ^payment/success/?$             payment_success.php  [L,QSA]
+RewriteRule ^payment/failure/?$             payment_failure.php  [L,QSA]
+RewriteRule ^check-status/?$                check_status.php  [L,QSA]
+RewriteRule ^receipt/([A-Z0-9-]+)/?$       receipt.php?reg_id=$1  [L,QSA]
+
+# PHP settings
+php_value upload_max_filesize 10M
+php_value post_max_size 10M
+php_value max_execution_time 60
+
+# Block directory listing
+Options -Indexes

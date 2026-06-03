@@ -1,0 +1,136 @@
+/* ============================================================
+   KABUTO ESPORTS — Admin Panel Stylesheet
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Rajdhani:wght@600;700&display=swap');
+
+:root {
+  --primary: #f5a623; --primary-dark: #e8940a; --primary-glow: rgba(245,166,35,0.2);
+  --success: #10b981; --danger: #ef4444; --warning: #fbbf24; --info: #3b82f6;
+  --bg-dark: #080810; --bg-sidebar: #0f0f1a; --bg-card: #111120;
+  --bg-surface: #1a1a2e; --bg-hover: #1e1e38;
+  --border: rgba(255,255,255,0.07); --border-bright: rgba(245,166,35,0.25);
+  --text-primary: #f1f5f9; --text-muted: #94a3b8; --text-dim: #64748b;
+  --sidebar-width: 250px; --topbar-height: 64px;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:var(--bg-dark);color:var(--text-primary);display:flex;min-height:100vh;overflow-x:hidden}
+a{color:var(--primary);text-decoration:none}
+
+/* ── Sidebar ── */
+.sidebar{width:var(--sidebar-width);min-height:100vh;background:var(--bg-sidebar);border-right:1px solid var(--border);display:flex;flex-direction:column;position:fixed;left:0;top:0;bottom:0;z-index:100;transition:transform .3s ease}
+.sidebar-brand{padding:20px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
+.sidebar-brand .brand-text{font-family:'Rajdhani',sans-serif;font-size:18px;font-weight:700;color:var(--primary);letter-spacing:1px}
+.sidebar-brand .brand-sub{font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:1px}
+.sidebar-nav{flex:1;padding:16px 0;overflow-y:auto}
+.nav-section-label{font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:1.5px;padding:16px 20px 6px;font-weight:600}
+.sidebar-link{display:flex;align-items:center;gap:12px;padding:11px 20px;color:var(--text-muted);font-size:14px;font-weight:500;transition:all .2s;position:relative}
+.sidebar-link:hover,.sidebar-link.active{color:var(--text-primary);background:var(--bg-hover)}
+.sidebar-link.active{color:var(--primary)}
+.sidebar-link.active::before{content:'';position:absolute;left:0;top:4px;bottom:4px;width:3px;background:var(--primary);border-radius:0 3px 3px 0}
+.sidebar-link svg{width:18px;height:18px;flex-shrink:0}
+.sidebar-footer{padding:16px 20px;border-top:1px solid var(--border);font-size:13px;color:var(--text-dim)}
+.sidebar-footer strong{display:block;color:var(--text-muted)}
+
+/* ── Main Content ── */
+.main{flex:1;margin-left:var(--sidebar-width);display:flex;flex-direction:column;min-height:100vh}
+.topbar{height:var(--topbar-height);background:var(--bg-sidebar);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 28px;position:sticky;top:0;z-index:50}
+.topbar-title{font-family:'Rajdhani',sans-serif;font-size:20px;font-weight:700}
+.topbar-right{display:flex;align-items:center;gap:16px}
+.topbar-right a{color:var(--text-muted);font-size:13px;transition:color .2s}
+.topbar-right a:hover{color:var(--primary)}
+.content{padding:28px;flex:1}
+
+/* ── Stat Cards ── */
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:28px}
+.stat-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;display:flex;align-items:center;gap:16px;transition:all .25s}
+.stat-card:hover{border-color:var(--border-bright);transform:translateY(-2px)}
+.stat-icon{width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.stat-icon.gold{background:rgba(245,166,35,0.15);color:var(--primary)}
+.stat-icon.green{background:rgba(16,185,129,0.15);color:var(--success)}
+.stat-icon.blue{background:rgba(59,130,246,0.15);color:var(--info)}
+.stat-icon.purple{background:rgba(124,58,237,0.15);color:#a78bfa}
+.stat-info .num{font-family:'Rajdhani',sans-serif;font-size:28px;font-weight:700;color:var(--text-primary);line-height:1}
+.stat-info .lbl{font-size:12px;color:var(--text-muted);margin-top:2px}
+
+/* ── Admin Cards ── */
+.admin-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:24px}
+.admin-card-header{padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.admin-card-title{font-family:'Rajdhani',sans-serif;font-size:17px;font-weight:700;display:flex;align-items:center;gap:8px}
+.admin-card-body{padding:20px}
+
+/* ── Admin Buttons ── */
+.btn{display:inline-flex;align-items:center;gap:6px;padding:9px 18px;border-radius:7px;font-size:13px;font-weight:600;border:none;cursor:pointer;transition:all .2s;text-decoration:none;font-family:'Inter',sans-serif;white-space:nowrap}
+.btn-primary{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#0a0a0f}
+.btn-primary:hover{opacity:.9;color:#0a0a0f;transform:translateY(-1px)}
+.btn-danger{background:rgba(239,68,68,.15);color:var(--danger);border:1px solid rgba(239,68,68,.3)}
+.btn-danger:hover{background:rgba(239,68,68,.25)}
+.btn-success{background:rgba(16,185,129,.15);color:var(--success);border:1px solid rgba(16,185,129,.3)}
+.btn-success:hover{background:rgba(16,185,129,.25)}
+.btn-info{background:rgba(59,130,246,.15);color:var(--info);border:1px solid rgba(59,130,246,.3)}
+.btn-info:hover{background:rgba(59,130,246,.25)}
+.btn-outline{background:transparent;color:var(--text-muted);border:1px solid var(--border)}
+.btn-outline:hover{color:var(--text-primary);border-color:var(--text-muted)}
+.btn-sm{padding:6px 12px;font-size:12px}
+
+/* ── Admin Table ── */
+.table-responsive{overflow-x:auto}
+table{width:100%;border-collapse:collapse}
+thead th{background:var(--bg-surface);padding:11px 14px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);white-space:nowrap;border-bottom:1px solid var(--border)}
+tbody td{padding:13px 14px;font-size:13px;color:var(--text-primary);border-bottom:1px solid var(--border);vertical-align:middle}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover td{background:var(--bg-hover)}
+
+/* ── Admin Form ── */
+.form-group{margin-bottom:16px}
+.form-label{display:block;font-size:12px;font-weight:600;color:var(--text-muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px}
+.form-control{width:100%;background:var(--bg-surface);border:1px solid var(--border);color:var(--text-primary);border-radius:7px;padding:10px 14px;font-size:14px;transition:all .2s;font-family:'Inter',sans-serif}
+.form-control:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px var(--primary-glow)}
+textarea.form-control{resize:vertical;min-height:100px}
+.form-select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2394a3b8' fill='none' stroke-width='1.5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:36px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+
+/* ── Badges (admin) ── */
+.badge{display:inline-flex;align-items:center;padding:3px 10px;border-radius:100px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.badge-success{background:rgba(16,185,129,.15);color:var(--success)}
+.badge-warning{background:rgba(251,191,36,.15);color:var(--warning)}
+.badge-danger{background:rgba(239,68,68,.15);color:var(--danger)}
+.badge-info{background:rgba(59,130,246,.15);color:var(--info)}
+.badge-primary{background:rgba(245,166,35,.15);color:var(--primary)}
+.badge-secondary{background:rgba(100,116,139,.2);color:var(--text-muted)}
+
+/* ── Alert ── */
+.alert{padding:12px 16px;border-radius:8px;margin-bottom:16px;display:flex;align-items:flex-start;gap:10px;font-size:13px;border:1px solid transparent}
+.alert-success{background:rgba(16,185,129,.1);border-color:rgba(16,185,129,.3);color:#34d399}
+.alert-danger{background:rgba(239,68,68,.1);border-color:rgba(239,68,68,.3);color:#f87171}
+.alert-warning{background:rgba(251,191,36,.1);border-color:rgba(251,191,36,.3);color:#fbbf24}
+
+/* ── Filter Bar ── */
+.filter-bar{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:20px;align-items:center}
+.filter-bar .form-control{max-width:200px}
+.search-box{position:relative;flex:1;max-width:320px}
+.search-box input{padding-left:36px}
+.search-box .search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--text-dim);font-size:15px}
+
+/* ── Pagination ── */
+.pagination{display:flex;align-items:center;gap:4px;justify-content:center;margin-top:24px}
+.page-link{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:6px;background:var(--bg-surface);border:1px solid var(--border);color:var(--text-muted);font-size:13px;transition:all .2s}
+.page-link:hover,.page-link.active{background:var(--primary);color:#0a0a0f;border-color:var(--primary)}
+
+/* ── Login Page ── */
+.login-wrapper{min-height:100vh;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at 50% 40%,rgba(245,166,35,.08),transparent 60%),var(--bg-dark)}
+.login-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:40px;width:100%;max-width:420px}
+.login-logo{text-align:center;margin-bottom:32px;font-family:'Rajdhani',sans-serif;font-size:24px;font-weight:700;color:var(--primary);letter-spacing:2px}
+.login-logo span{display:block;font-size:12px;color:var(--text-dim);letter-spacing:1px;margin-top:4px}
+
+@media(max-width:768px){
+  .sidebar{transform:translateX(-100%)}
+  .sidebar.open{transform:translateX(0)}
+  .main{margin-left:0}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .form-row{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .stats-grid{grid-template-columns:1fr}
+  .content{padding:16px}
+}

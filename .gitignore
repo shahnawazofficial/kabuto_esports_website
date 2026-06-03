@@ -1,0 +1,54 @@
+# ============================================================
+# KABUTO ESPORTS — .gitignore
+# ============================================================
+
+# ── SENSITIVE CONFIG (NEVER commit real credentials) ────────
+config/config.php
+
+# ── LOGS ───────────────────────────────────────────────────
+logs/
+*.log
+
+# ── USER UPLOADS (binary, not source code) ─────────────────
+uploads/
+data/
+
+# ── DEBUG & MIGRATION SCRIPTS (one-time use) ───────────────
+diag.php
+diag2.php
+admin_debug.php
+admin_tour_debug.php
+fix.php
+fix2.php
+htfix.php
+mover.php
+emergency.php
+setup.php
+migrate_*.php
+fresh_launch.php
+coupon_debug.php
+ftp_upload.php
+*_debug.php
+
+# ── OS & EDITOR FILES ──────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# ── DEPENDENCIES ───────────────────────────────────────────
+vendor/
+node_modules/
+
+# ── ENVIRONMENT ────────────────────────────────────────────
+.env
+.env.local
+.env.production
+
+# ── TEMP FILES ─────────────────────────────────────────────
+*.tmp
+*.bak
+*.swp
